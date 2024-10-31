@@ -1,0 +1,21 @@
+<app-container>
+	<div class="card-container">
+		<div class="container-titulo">
+			<img src="{{ imagem }}" alt="" class="imagem" />
+			<p class="produto-nome">{{ nome }}</p>
+			<div class="container-info">
+				<p class="produto-categoria">{{ categoria }}</p>
+				<p class="produto-marca">{{ marca }}</p>
+			</div>
+		</div>
+
+		<p class="produto-descricao">{{ descricao }}</p>
+		<p class="produto-valor">R$ {{ valor | number : "1.2-2" }}</p>
+
+		<p class="produto-quantidade">Estoque: {{ quantidade }}</p>
+
+		<div class="container-botoes">
+			<button [routerLink]="['/info-produto', id]">Mais</button>
+		</div>
+	</div>
+</app-container>

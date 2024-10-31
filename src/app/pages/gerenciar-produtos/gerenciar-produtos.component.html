@@ -1,0 +1,92 @@
+<app-container>
+	<div class="container">
+		<h1>Adicionar Produtos</h1>
+		<form [formGroup]="produtoForm" (ngSubmit)="salvarProduto()">
+			<label for="nome"><strong>Nome:</strong></label>
+			<input
+				type="text"
+				placeholder="Digite o nome do produto"
+				formControlName="nome"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('nome')"
+			></app-mensagem-erro>
+			<label for="categoria"><strong>Marca:</strong></label>
+			<input
+				type="text"
+				placeholder="Digite a marca do produto"
+				formControlName="marca"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('marca')"
+			></app-mensagem-erro>
+			<label for="categoria"><strong>Categoria:</strong></label>
+			<input
+				type="text"
+				placeholder="Digite a categoria do produto"
+				formControlName="categoria"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('categoria')"
+			></app-mensagem-erro>
+
+			<label for="valor"><strong>Valor:</strong></label>
+			<input
+				type="number"
+				placeholder="Digite o valor do produto"
+				formControlName="valor"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('valor')"
+			></app-mensagem-erro>
+
+			<label for="quantidade"><strong>Quantidade:</strong></label>
+			<input
+				type="number"
+				placeholder="Digite a quantidade de produtos"
+				formControlName="quantidade"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('quantidade')"
+			></app-mensagem-erro>
+			<label for="imagem"><strong>Imagem:</strong></label>
+			<input
+				type="text"
+				formControlName="imagem"
+				placeholder="Insira a URL da imagem"
+			/>
+			<app-mensagem-erro
+				[control]="obterControle('imagem')"
+			></app-mensagem-erro>
+			<label for="descricao"><strong>Descrição:</strong></label>
+			<textarea
+				name="descricao"
+				placeholder="Digite uma descrição sobre o produto"
+				formControlName="descricao"
+			></textarea>
+			<app-mensagem-erro
+				[control]="obterControle('descricao')"
+			></app-mensagem-erro>
+			<div>
+				<button
+					type="button"
+					(click)="cancelar()"
+					class="botao-habilitado"
+				>
+					Cancelar
+				</button>
+				<button
+					type="submit"
+					[disabled]="produtoForm.invalid"
+					[ngClass]="
+						produtoForm.valid
+							? 'botao-habilitado'
+							: 'botao-desabilitado'
+					"
+				>
+					Enviar
+				</button>
+			</div>
+		</form>
+	</div>
+</app-container>

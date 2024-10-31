@@ -1,0 +1,15 @@
+<app-container>
+	@for(produto of produtos;track produto.id){
+	<app-card-produto
+		[imagem]="produto.imagem"
+		[nome]="produto.nome"
+		[marca]="produto.marca"
+		[categoria]="produto.categoria"
+		[descricao]="produto.descricao"
+		[valor]="produto.valor!"
+		[quantidade]="produto.quantidade!"
+		[id]="produto.id!"
+	>
+	</app-card-produto>
+	}
+</app-container>

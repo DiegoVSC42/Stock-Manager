@@ -1,0 +1,21 @@
+footer {
+	background-color: #444;
+	text-align: center;
+	padding: 5px 0;
+	bottom: 0;
+	width: 100%;
+	position: relative;
+	margin-top: 3%;
+	a {
+		i {
+			font-size: 48px;
+		}
+		text-decoration: none;
+		color: white;
+		font-size: 18px;
+		font-weight: bold;
+		p {
+			margin: 0;
+		}
+	}
+}

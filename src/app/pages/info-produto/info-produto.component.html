@@ -1,0 +1,24 @@
+<app-container>
+	<h1>Informações do Produto</h1>
+	<div class="container">
+		<img [src]="produto.imagem" />
+		<section class="info-produto">
+			<ul>
+				<li><strong>Nome:</strong> {{ produto.nome }}</li>
+				<li><strong>Marca:</strong> {{ produto.marca }}</li>
+				<li><strong>Categoria:</strong> {{ produto.categoria }}</li>
+				<li><strong>Valor:</strong> {{ produto.valor }}</li>
+				<li><strong>Quantidade:</strong> {{ produto.quantidade }}</li>
+				<li><strong>Imagem:</strong> {{ produto.imagem }}</li>
+				<li><strong>Descrição:</strong> {{ produto.descricao }}</li>
+			</ul>
+		</section>
+
+		<div class="container-botoes">
+			<button (click)="excluir()">Excluir</button>
+			<button [routerLink]="['/gerenciar-produtos', produto.id]">
+				Editar
+			</button>
+		</div>
+	</div>
+</app-container>
