@@ -10,12 +10,14 @@ header {
 	align-items: center;
 	max-height: 369px;
 	position: static;
+
 	p {
 		font-size: 36px;
 		font-weight: bold;
 		margin: 0;
 		font-family: "Merriweather";
 		padding-left: 10px;
+		cursor: pointer;
 	}
 	nav {
 		display: flex;
