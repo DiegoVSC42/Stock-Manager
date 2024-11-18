@@ -1,0 +1,84 @@
+{
+	"produtos": [
+		{
+			"nome": "PlayStation 5 ",
+			"marca": "Sony",
+			"categoria": "Console de Videogame",
+			"valor": 3549.99,
+			"quantidade": 1,
+			"descricao": "O PlayStation 5 oferece gráficos incríveis em 4K, com alta velocidade de carregamento e imersão garantida através de tecnologias como feedback tátil e gatilhos adaptáveis no controle DualSense. Ideal para quem busca uma experiência de jogo de última geração.",
+			"imagem": "https://m.media-amazon.com/images/I/51SM5xU-M1L._AC_SX679_.jpg",
+			"id": 1
+		},
+		{
+			"id": 2,
+			"imagem": "https://m.media-amazon.com/images/I/516pVDAQMnL._AC_SX679_.jpg",
+			"nome": "Xbox Series X",
+			"marca": "Microsoft",
+			"descricao": "O Xbox Series X é o console mais potente da Microsoft, oferecendo gráficos em 4K, alta taxa de quadros e tempo de carregamento reduzido. Perfeito para jogos de nova geração e retrocompatibilidade.",
+			"categoria": "Console de Videogame",
+			"valor": 3599.99,
+			"quantidade": 1
+		},
+		{
+			"id": 3,
+			"imagem": "https://images2.kabum.com.br/produtos/fotos/385192/console-nintendo-switch-oled-com-joy-con-branco-hbgskaaa2_1663593573_g.jpg",
+			"nome": "Nintendo Switch",
+			"marca": "Nintendo",
+			"descricao": "O Nintendo Switch é um console híbrido que permite jogar tanto em modo portátil quanto conectado à TV. Com uma biblioteca de jogos exclusiva e diversão garantida para todas as idades.",
+			"categoria": "Console de Videogame",
+			"valor": 1999.99,
+			"quantidade": 1
+		},
+		{
+			"id": 4,
+			"imagem": "https://images1.kabum.com.br/produtos/fotos/115801/controle-sem-fio-ps5-dualsense_1598897393_g.jpg",
+			"nome": "Controle DualSense para PS5",
+			"marca": "Sony",
+			"descricao": "Controle sem fio DualSense para PlayStation 5, com feedback tátil e gatilhos adaptáveis, proporcionando uma imersão única nos jogos. Design ergonômico e tecnologia inovadora.",
+			"categoria": "Acessório para Console",
+			"valor": 389.99,
+			"quantidade": 1
+		},
+		{
+			"id": 5,
+			"imagem": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTNUvTXlj0uQNNPrxmYZCChYja4DS_koIsPgnuxidaJyPNf4_vSRwqFhVa5v-BN-EhYkPTOfEdNollrpnHSZgz7ztC8wkHTo30cb3jdmeqnhtaZrCV8WVemSQ&usqp=CAE",
+			"nome": "Headset Gamer HyperX Cloud II",
+			"marca": "HyperX",
+			"descricao": "Headset gamer HyperX Cloud II com som surround 7.1, conforto superior e microfone removível. Ideal para sessões prolongadas de jogos.",
+			"categoria": "Acessório para PC e Console",
+			"valor": 549.99,
+			"quantidade": 1
+		},
+		{
+			"id": 6,
+			"nome": "Xbox Series S",
+			"marca": "Microsoft",
+			"categoria": "Console de Videogame",
+			"valor": 2575,
+			"quantidade": 1,
+			"descricao": "O Xbox Series S é um console de videogame compacto da Microsoft, lançado em 2020. Com desempenho de nova geração, ele oferece gráficos até 1440p, um SSD de 512 GB para carregamentos rápidos e é compatível com jogos de gerações anteriores. ",
+			"imagem": "https://m.media-amazon.com/images/I/51pNvD-nsvL._AC_SX679_.jpg"
+		},
+		{
+			"id": 7,
+			"nome": "Controle sem fio xbox",
+			"marca": "Microsoft",
+			"categoria": "Acessório para Console",
+			"valor": 386.1,
+			"quantidade": 1,
+			"descricao": "O controle sem fio Xbox preto oferece ergonomia avançada, boa aderência e botões personalizáveis, sendo compatível com Xbox e PC via Bluetooth.",
+			"imagem": "https://m.media-amazon.com/images/I/61qX3f8v5kL._AC_SX679_.jpg"
+		},
+		{
+			"nome": "Pro Controller Nintendo Switch",
+			"marca": "Nintendo",
+			"categoria": "Acessório para console",
+			"valor": 389.99,
+			"quantidade": 4,
+			"descricao": "O Nintendo Switch Pro Controller é um controle ergonômico com conectividade sem fio, botões analógicos e precisão aprimorada, projetado para maior conforto e durabilidade no uso prolongado em jogos do Nintendo Switch.",
+			"imagem": "https://m.media-amazon.com/images/I/71INYpPDGzL._AC_SX679_.jpg",
+			"id": 8
+		}
+	]
+}
