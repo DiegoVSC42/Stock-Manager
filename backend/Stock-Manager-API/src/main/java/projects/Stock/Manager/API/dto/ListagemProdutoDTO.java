@@ -7,6 +7,7 @@ import projects.Stock.Manager.API.produto.Produto;
 
 public record ListagemProdutoDTO(
 
+		Long id,
         @NotBlank
         String nome,
         @NotBlank
@@ -24,7 +25,9 @@ public record ListagemProdutoDTO(
 ) {
 
     public ListagemProdutoDTO(Produto produto) {
-        this(produto.getNome(),
+        this(
+				produto.getId(),
+				produto.getNome(),
 				produto.getMarca(),
 				produto.getCategoria(),
 				produto.getValor(),

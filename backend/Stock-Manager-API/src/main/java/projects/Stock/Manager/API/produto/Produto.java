@@ -1,10 +1,12 @@
 package projects.Stock.Manager.API.produto;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import projects.Stock.Manager.API.dto.AtualizacaoProdutoDTO;
 import projects.Stock.Manager.API.dto.CadastroProdutoDTO;
 
 @Table(name = "produtos")
@@ -35,5 +37,40 @@ public class Produto {
 		this.quantidade = dados.quantidade();
 		this.imagem = dados.imagem();
 		this.descricao = dados.descricao();
+	}
+
+	public void atualizarInformacoes(AtualizacaoProdutoDTO dados) {
+
+		if (dados.nome() != null) {
+			this.nome = dados.nome();
+
+		}
+		if (dados.marca() != null) {
+			this.marca = dados.marca();
+
+		}
+		if (dados.categoria() != null) {
+			this.categoria = dados.categoria();
+
+		}
+		if (dados.valor() != null) {
+			this.valor = dados.valor();
+
+		}
+		if (dados.quantidade() != 0) {
+			this.quantidade = dados.quantidade();
+
+		}
+		if (dados.imagem() != null) {
+			this.imagem = dados.imagem();
+
+		}
+		if (dados.descricao() != null) {
+			this.descricao = dados.descricao();
+
+		}
+
+
+
 	}
 }
