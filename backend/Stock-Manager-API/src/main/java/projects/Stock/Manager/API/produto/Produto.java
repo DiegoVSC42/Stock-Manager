@@ -67,7 +67,6 @@ public class Produto {
 		}
 		if (dados.descricao() != null) {
 			this.descricao = dados.descricao();
-
 		}
 
 
