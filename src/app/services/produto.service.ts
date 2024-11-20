@@ -16,6 +16,7 @@ export class ProdutoService {
 	salvarProduto(produto: Produto) {
 		return this.http.post<Produto>(this.API, produto);
 	}
+
 	buscarPorId(id: number): Observable<Produto> {
 		const url = `${this.API}/${id}`;
 		return this.http.get<Produto>(url);
@@ -25,8 +26,10 @@ export class ProdutoService {
 		const url = `${this.API}/${id}`;
 		return this.http.delete<Produto>(url);
 	}
+
 	editarProduto(produto: Produto): Observable<Produto> {
 		const url = `${this.API}/${produto.id}`;
+		console.log(url);
 		return this.http.put<Produto>(url, produto);
 	}
 
