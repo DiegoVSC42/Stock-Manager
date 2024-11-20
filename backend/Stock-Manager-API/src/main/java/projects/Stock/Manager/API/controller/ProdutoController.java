@@ -32,8 +32,8 @@ public class ProdutoController {
 	}
 
 	@GetMapping
-	public Page<ListagemProdutoDTO> listar(@PageableDefault(size=10,sort={"valor"},direction = Sort.Direction.DESC) Pageable paginacao){
-		return repository.findAll(paginacao).map(ListagemProdutoDTO::new);
+	public List<ListagemProdutoDTO> listar(){
+		return repository.findAll().stream().map(ListagemProdutoDTO::new).toList();
 	}
 
 	@PutMapping
