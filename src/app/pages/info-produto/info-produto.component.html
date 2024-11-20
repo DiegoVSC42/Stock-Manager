@@ -1,7 +1,9 @@
 <app-container>
 	<h1>Informações do Produto</h1>
 	<div class="container">
-		<img [src]="produto.imagem" />
+		<div class="container-imagem">
+			<img class="imagem" [src]="produto.imagem" />
+		</div>
 		<section class="info-produto">
 			<ul>
 				<li><strong>Nome:</strong> {{ produto.nome }}</li>

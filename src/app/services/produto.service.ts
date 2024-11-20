@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class ProdutoService {
-	private readonly API = 'http://localhost:3000/produtos';
+	private readonly API = 'http://localhost:8080/produtos';
 	constructor(private http: HttpClient) {}
 	obterProdutos(): Observable<Produto[]> {
 		return this.http.get<Produto[]>(this.API);
