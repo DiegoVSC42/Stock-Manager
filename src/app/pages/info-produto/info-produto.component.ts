@@ -42,7 +42,11 @@ export class InfoProdutoComponent implements OnInit {
 	}
 
 	excluir() {
-		if (this.produto.id) {
+		const confirmar = window.confirm(
+			'Tem certeza que deseja excluir este produto?'
+		);
+
+		if (confirmar && this.produto.id) {
 			this.produtoService
 				.excluirProduto(this.produto.id)
 				.subscribe(() => {

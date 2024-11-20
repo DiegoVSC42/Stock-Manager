@@ -69,16 +69,6 @@
       "quantidade": 1,
       "descricao": "O controle sem fio Xbox preto oferece ergonomia avançada, boa aderência e botões personalizáveis, sendo compatível com Xbox e PC via Bluetooth.",
       "imagem": "https://m.media-amazon.com/images/I/61qX3f8v5kL._AC_SX679_.jpg"
-    },
-    {
-      "nome": "Pro Controller Nintendo Switch",
-      "marca": "Nintendo",
-      "categoria": "Acessório para console",
-      "valor": 389.99,
-      "quantidade": 4,
-      "descricao": "O Nintendo Switch Pro Controller é um controle ergonômico com conectividade sem fio, botões analógicos e precisão aprimorada, projetado para maior conforto e durabilidade no uso prolongado em jogos do Nintendo Switch.",
-      "imagem": "https://m.media-amazon.com/images/I/71INYpPDGzL._AC_SX679_.jpg",
-      "id": 8
     }
   ]
 }
