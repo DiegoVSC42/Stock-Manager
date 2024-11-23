@@ -12,11 +12,10 @@ import projects.Stock.Manager.API.dto.AtualizacaoProdutoDTO;
 import projects.Stock.Manager.API.dto.CadastroProdutoDTO;
 import projects.Stock.Manager.API.dto.ListagemProdutoDTO;
 import projects.Stock.Manager.API.dto.ProdutoDetalhadoDTO;
-import projects.Stock.Manager.API.produto.Produto;
+import projects.Stock.Manager.API.domain.produto.Produto;
 import projects.Stock.Manager.API.repository.ProdutoRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

@@ -1,4 +1,4 @@
-package projects.Stock.Manager.API.produto;
+package projects.Stock.Manager.API.domain.produto;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;

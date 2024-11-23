@@ -2,7 +2,7 @@ package projects.Stock.Manager.API.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import projects.Stock.Manager.API.produto.Produto;
+import projects.Stock.Manager.API.domain.produto.Produto;
 
 
 public record ListagemProdutoDTO(
