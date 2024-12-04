@@ -13,13 +13,11 @@ import java.util.List;
 @RestControllerAdvice
 public class TratadorDeErros {
 
+	// Esse erro acontece quando o usuário da API tenta requisitar um id que nao existe no banco,
+	// portanto deveria retornar "Not Found"
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity tratarErro500(){
-		ApiRestErro erro = ApiRestErroBuilder.aApiRestError()
-			.withError(List.of(new DadosErroValidacao("Server", "Erro Interno")))
-			.withCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
-			.withStatus(HttpStatus.INTERNAL_SERVER_ERROR.name()).build();
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		return ResponseEntity.notFound().build();
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
