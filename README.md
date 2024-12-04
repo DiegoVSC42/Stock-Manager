@@ -113,6 +113,16 @@ Se preferir utilizar um backend real com Java e Spring Boot, siga os passos abai
 
     Abra o navegador e vá para [http://localhost:4200](http://localhost:4200).
 
-## Próximos passos
+## Documentação da API
 
-O próximo passo para finalizar o desenvolvimento da aplicação será a criação de uma interface mais robusta e a implementação de funcionalidades adicionais de gerenciamento de estoque, como autenticação de usuários e integração com outras APIs.
+A API do backend desenvolvida em **Java com Spring Boot** foi documentada utilizando o **Springdoc OpenAPI** e o **Swagger**. Com essa integração, é possível acessar uma interface interativa para explorar os endpoints e testar requisições diretamente pelo navegador, ou visualizar o esquema OpenAPI em formato JSON.
+
+> **Importante:** Essa documentação está disponível **apenas ao utilizar o backend em Java com Spring Boot**. Se optar pelo **JSON Server**, essa funcionalidade não estará disponível.
+
+-   **Interface Swagger (UI):**  
+    Acesse a documentação interativa da API pelo endereço:  
+    [http://localhost:3000/swagger-ui/index.html](http://localhost:3000/swagger-ui/index.html)
+
+-   **Formato JSON:**  
+    Para acessar o esquema OpenAPI em formato JSON, utilize:  
+    [http://localhost:3000/v3/api-docs](http://localhost:3000/v3/api-docs)
