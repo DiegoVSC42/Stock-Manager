@@ -1,4 +1,4 @@
-package projects.Stock.Manager.API.infra;
+package projects.Stock.Manager.API.infra.exception;
 
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;

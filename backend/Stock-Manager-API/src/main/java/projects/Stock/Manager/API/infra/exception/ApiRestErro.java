@@ -1,4 +1,4 @@
-package projects.Stock.Manager.API.infra;
+package projects.Stock.Manager.API.infra.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;
