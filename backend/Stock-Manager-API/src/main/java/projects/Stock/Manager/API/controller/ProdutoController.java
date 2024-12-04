@@ -7,15 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
+import projects.Stock.Manager.API.Service.ProdutoService;
 import projects.Stock.Manager.API.dto.AtualizacaoProdutoDTO;
 import projects.Stock.Manager.API.dto.CadastroProdutoDTO;
 import projects.Stock.Manager.API.dto.ListagemProdutoDTO;
-import projects.Stock.Manager.API.dto.ProdutoDetalhadoDTO;
-import projects.Stock.Manager.API.domain.produto.Produto;
-import projects.Stock.Manager.API.infra.exception.ProductNotFoundException;
-import projects.Stock.Manager.API.repository.ProdutoRepository;
 
 import java.util.List;
 
@@ -24,47 +20,33 @@ import java.util.List;
 @RequestMapping("/produtos")
 public class ProdutoController {
 	@Autowired
-	private ProdutoRepository repository;
+	private ProdutoService produtoService;
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity cadastrar(@RequestBody @Valid CadastroProdutoDTO dados, UriComponentsBuilder uriBuilder){
-		var produto = new Produto(dados);
-		repository.save(produto);
-		var uri = uriBuilder.path("/produtos/{id}").buildAndExpand(produto.getId()).toUri();
-		return ResponseEntity.created(uri).body(new ProdutoDetalhadoDTO(produto));
+	public ResponseEntity criar(@RequestBody @Valid CadastroProdutoDTO dados, UriComponentsBuilder uriBuilder){
+		return produtoService.guardarProduto(dados, uriBuilder);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<ListagemProdutoDTO>> listar(){
-		var page = repository.findAll().stream().map(ListagemProdutoDTO::new).toList();
-		return ResponseEntity.ok(page);
+	public ResponseEntity<List<ListagemProdutoDTO>> ler(){
+		return produtoService.listarProdutos();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity pesquisarPorID(@PathVariable Long id) {
-		try{
-			var produto = repository.getReferenceById(id);
-			return ResponseEntity.ok(new ProdutoDetalhadoDTO(produto));
-		}catch (Exception e){
-			throw new ProductNotFoundException("Produto de id: "+ id +" não existe");
-		}
+	public ResponseEntity lerEspecifico(@PathVariable Long id) {
+		return produtoService.buscarProdutoPorId(id);
 	}
 
 	@PutMapping
 	@Transactional
 	public ResponseEntity atualizar(@RequestBody @Valid AtualizacaoProdutoDTO dados) {
-		var produto = repository.getReferenceById(dados.id());
-		produto.atualizarInformacoes(dados);
-
-		return ResponseEntity.ok(new ProdutoDetalhadoDTO(produto));
+		return produtoService.atualizarProduto(dados);
 	}
 
 	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity excluir(@PathVariable Long id){
-		repository.deleteById(id);
-
-		return ResponseEntity.noContent().build();
+		return produtoService.removerProduto(id);
 	}
 }
