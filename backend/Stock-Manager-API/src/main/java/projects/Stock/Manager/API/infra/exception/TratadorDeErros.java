@@ -8,14 +8,24 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.List;
+
 @RestControllerAdvice
 public class TratadorDeErros {
 
 	// Esse erro acontece quando o usuário da API tenta requisitar um id que nao existe no banco,
 	// portanto deveria retornar "Not Found"
-	@ExceptionHandler(EntityNotFoundException.class)
-	public ResponseEntity tratarErro500(){
-		return ResponseEntity.notFound().build();
+	@ExceptionHandler(ProductNotFoundException.class)
+	public ResponseEntity<ApiRestErro> ProductNotFoundExceptionHandler(ProductNotFoundException exception) {
+		List<TratadorDeErros.DadosErroValidacao> erros = List.of(
+			new TratadorDeErros.DadosErroValidacao("id", exception.getMessage())
+		);
+		ApiRestErro apiRestErro = ApiRestErroBuilder.aApiRestError()
+			.withCode(HttpStatus.NOT_FOUND.value())
+			.withStatus(HttpStatus.NOT_FOUND.name())
+			.withError(erros)
+			.build();
+		return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiRestErro);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

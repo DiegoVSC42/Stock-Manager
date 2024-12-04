@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 import projects.Stock.Manager.API.dto.AtualizacaoProdutoDTO;
 import projects.Stock.Manager.API.dto.CadastroProdutoDTO;
 import projects.Stock.Manager.API.dto.ListagemProdutoDTO;
 import projects.Stock.Manager.API.dto.ProdutoDetalhadoDTO;
 import projects.Stock.Manager.API.domain.produto.Produto;
+import projects.Stock.Manager.API.infra.exception.ProductNotFoundException;
 import projects.Stock.Manager.API.repository.ProdutoRepository;
 
 import java.util.List;
@@ -41,8 +43,12 @@ public class ProdutoController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity pesquisarPorID(@PathVariable Long id) {
-		var produto = repository.getReferenceById(id);
-		return ResponseEntity.ok(new ProdutoDetalhadoDTO(produto));
+		try{
+			var produto = repository.getReferenceById(id);
+			return ResponseEntity.ok(new ProdutoDetalhadoDTO(produto));
+		}catch (Exception e){
+			throw new ProductNotFoundException("Produto de id: "+ id +" não existe");
+		}
 	}
 
 	@PutMapping
