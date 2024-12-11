@@ -10,6 +10,7 @@ import projects.Stock.Manager.API.infra.exception.ProductNotFoundException;
 import projects.Stock.Manager.API.repository.ProdutoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -24,7 +25,8 @@ public class ProdutoService {
 
 	public Produto buscarProdutoPorId(long id) {
 		try{
-			return  repository.getReferenceById(id);
+			var produto = repository.findById(id).get();
+			return produto;
 		}catch (Exception e){
 			throw new ProductNotFoundException("Produto de id: "+ id +" não existe");
 		}
