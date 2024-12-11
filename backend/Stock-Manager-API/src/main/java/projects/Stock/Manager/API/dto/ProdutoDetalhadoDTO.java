@@ -2,7 +2,7 @@ package projects.Stock.Manager.API.dto;
 
 import projects.Stock.Manager.API.domain.produto.Produto;
 
-public record ProdutoDetalhadoDTO(long id,
+public record ProdutoDetalhadoDTO(Long id,
 								  String nome,
 								  String marca,
 								  String categoria,

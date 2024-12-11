@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -33,6 +34,9 @@ public class ProdutoController {
 	@GetMapping("/{id}")
 	public ResponseEntity lerEspecifico(@PathVariable Long id) {
 		var produto = produtoService.buscarProdutoPorId(id);
+		if(produto == null){
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 		var produtoDTO = new ProdutoDetalhadoDTO(produto);
 		return ResponseEntity.ok(produtoDTO);
 	}
