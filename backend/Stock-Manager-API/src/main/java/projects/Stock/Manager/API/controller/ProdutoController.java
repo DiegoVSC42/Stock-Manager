@@ -1,6 +1,5 @@
 package projects.Stock.Manager.API.controller;
 
-
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import projects.Stock.Manager.API.Service.ProdutoService;
+import projects.Stock.Manager.API.service.ProdutoService;
 import projects.Stock.Manager.API.domain.produto.Produto;
 import projects.Stock.Manager.API.dto.AtualizacaoProdutoDTO;
 import projects.Stock.Manager.API.dto.CadastroProdutoDTO;
@@ -25,7 +24,7 @@ public class ProdutoController {
 	private ProdutoService produtoService;
 
 	@GetMapping
-	public ResponseEntity<List<ListagemProdutoDTO>> ler(){
+	public ResponseEntity<List<ListagemProdutoDTO>> ler() {
 		var produtos = produtoService.listarProdutos();
 		var produtosDTO = produtos.stream().map(ListagemProdutoDTO::new).toList();
 		return ResponseEntity.ok(produtosDTO);
@@ -40,7 +39,7 @@ public class ProdutoController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity criar(@RequestBody @Valid CadastroProdutoDTO dados, UriComponentsBuilder uriBuilder){
+	public ResponseEntity criar(@RequestBody @Valid CadastroProdutoDTO dados, UriComponentsBuilder uriBuilder) {
 		var produto = new Produto(dados);
 		produtoService.guardarProduto(produto);
 		var uri = uriBuilder.path("/produtos/{id}").buildAndExpand(produto.getId()).toUri();
@@ -56,7 +55,7 @@ public class ProdutoController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity excluir(@PathVariable Long id){
+	public ResponseEntity excluir(@PathVariable Long id) {
 		produtoService.removerProduto(id);
 		return ResponseEntity.noContent().build();
 	}
