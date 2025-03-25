@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY target/*.jar /app/app.jar
+COPY *.jar /app/app.jar
 
 EXPOSE 3000
 
