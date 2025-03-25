@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+    db:
+        image: postgres:13  # versão 13, mas pode usar outras
+        container_name: stock-manager-db
+        environment:
+            POSTGRES_DB: stockdb
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            PGDATA: /var/lib/postgresql/data/pgdata
+        ports:
+            - "5432:5432"  # expõe a porta para acesso externo
+        volumes:
+            - postgres_data:/var/lib/postgresql/data # persiste os dados
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    app:
+        image: stock-manager:1.0  # sua imagem Spring Boot
+        container_name: stock-manager-app
+        ports:
+            - "3000:3000"
+        environment:
+            DB_HOST: db
+            DB_NAME: stockdb  # Alterado de DB_DATABASE para DB_NAME
+            DB_USER: postgres
+            DB_PASSWORD: postgres
+        depends_on:
+            db:
+                condition: service_healthy
+
+volumes:
+    postgres_data:
+        driver: local

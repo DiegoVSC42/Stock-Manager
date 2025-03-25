@@ -27,6 +27,7 @@ public class Produto {
 	private Double valor;
 	private int quantidade;
 	private String imagem;
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
 
 	public Produto(CadastroProdutoDTO dados) {
